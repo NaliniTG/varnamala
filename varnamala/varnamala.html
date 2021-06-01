@@ -1,0 +1,172 @@
+<html>
+    <head>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            
+            .center {
+              margin: auto;
+              width: 60%;
+            }
+        </style>
+        <script>
+            var swaraha = [	[ "अ ", "a ", "Swaraha/a.ogg" ],	
+                            [ "आ ", "ā ", "Swaraha/aa.ogg" ],	
+                            [ "इ ", "i ", "Swaraha/e.ogg" ],	
+                            [ "ई ", "ī ", "Swaraha/ee.ogg" ],	
+                            [ "उ ", "u ", "Swaraha/u.ogg" ],	
+                            [ "ऊ ", "ū ", "Swaraha/uu.ogg" ],	
+                            [ "ऋ ", "ṛ ", "Swaraha/ru.ogg" ],	
+                            [ "ॠ ", "ṝ ", "Swaraha/ruuu.ogg" ],	
+                            [ "लृ ", "ḷ ", "Swaraha/lru.ogg" ],	
+                            [ "ए ", "e ", "Swaraha/eh.ogg" ],	
+                            [ "ऐ ", "ai ", "Swaraha/i.ogg" ],	
+                            [ "ओ ", "o  ", "Swaraha/o.ogg" ],	
+                            [ "औ", "au", "Swaraha/ow.ogg" ] ];
+            
+            var swarahaYogavaha = [	[ "अं", "ṃ - anusvāraḥ", "Swaraha/am.ogg" ],	
+			                        [ "अः", "ḥ - visargaḥ", "Swaraha/aha.ogg" ],	];
+
+            var vyanKavarga = [	[ "क् ", "k ", "vyanjanani/ka/ka.ogg" ],	
+                                [ "ख् ", "kh ", "vyanjanani/ka/kha.ogg" ],	
+                                [ "ग ", "g ", "vyanjanani/ka/ga.ogg" ],	
+                                [ "घ् ", "gh ", "vyanjanani/ka/gha.ogg" ],	
+                                [ "ङ्", "ṅ", "vyanjanani/ka/nga.ogg" ]	];
+
+            var vyanChavarga = [	[ "च् ", "c ", "vyanjanani/cha/cha.flac" ],	
+	[ "छ् ", "ch ", "vyanjanani/cha/chha.flac" ],	
+	[ "ज् ", "j ", "vyanjanani/cha/ja.flac" ],	
+	[ "झ् ", "jh ", "vyanjanani/cha/jha.flac" ],	
+	[ "ञ्", "ñ", "vyanjanani/cha/jna.flac" ],	]
+
+                
+            var vyanTavarga = [	[ "ट् ", "ṭ ", "vyanjanani/ta/ta.flac" ],	
+	[ "ठ् ", "ṭh ", "vyanjanani/ta/tta.flac" ],	
+	[ "ड् ", "ḍ ", "vyanjanani/ta/da.flac" ],	
+	[ "ढ् ", "ḍh ", "vyanjanani/ta/dda.flac" ],	
+	[ "ण्", "ṇ", "vyanjanani/ta/nna.flac" ],	]
+
+                
+            var vyanThavarga =  [	[ "त् ", "t ", "vyanjanani/tha/tha.flac" ],	
+	[ "थ् ", "th ", "vyanjanani/tha/thha.flac" ],	
+	[ "द् ", "d ", "vyanjanani/tha/dha.flac" ],	
+	[ "ध् ", "dh ", "vyanjanani/tha/dhha.flac" ],	
+	[ "न्", "n", "vyanjanani/tha/na.flac" ],	]
+
+                
+            var vyanPavarga = [	[ "प् ", "p ", "vyanjanani/pa/pa.flac" ],	
+	[ "फ् ", "ph ", "vyanjanani/pa/pha.flac" ],	
+	[ "ब् ", "b ", "vyanjanani/pa/ba.flac" ],	
+	[ "भ् ", " bh ", "vyanjanani/pa/bha.flac" ],	
+	[ "म्", "m", "vyanjanani/pa/ma.flac" ],	]
+
+                
+            var vyanAvarga1 = [	[ "य् ", "y ", "vyanjanani/avargiya/ya.flac" ],	
+	[ "र् ", "r ", "vyanjanani/avargiya/ra.flac" ],	
+	[ "ल् ", "l ", "vyanjanani/avargiya/la.flac" ],	
+	[ "व्", "v", "vyanjanani/avargiya/va.flac" ],	]
+
+                
+            var vyanAvarga2 = [	[ "श् ", "ś ", "vyanjanani/avargiya/sha.flac" ],	
+	[ "ष् ", "ṣ ", "vyanjanani/avargiya/shha.flac" ],	
+	[ "स्", "s", "vyanjanani/avargiya/sa.flac" ],	]
+
+            
+            var vyanAvarga3 = [	[ "ह्", "h", "vyanjanani/avargiya/ha.flac" ],		]
+
+        
+            function playAudio(audFile) {
+                var player = document.getElementById("player");
+                player.src = audFile;
+                player.play();
+            }
+            
+            function fillTable(arrData, divToFill) {
+                txtData = "<table> <tr align=center>";
+                for(let = 0; let < arrData.length; let++) {
+                    
+                    txtData += "<td> <button onclick=playAudio('" + arrData[let][2] + "')><font size=20>" + arrData[let][0] + "</font></button> </td>";
+                    
+                }
+                
+                txtData += "</tr> <tr align=center>";
+                
+                for(let = 0; let < arrData.length; let++) {
+                    
+                    txtData += "<td> <font size=20>" + arrData[let][1] + "</font></td>";
+                    
+                }
+                txtData += "</tr> </table>";
+                
+                document.getElementById(divToFill).innerHTML = txtData;
+            }
+            
+            function fillTables() {
+                fillTable(swaraha, "swaraha");
+                fillTable(swarahaYogavaha, "swarahaYogawaha");
+                
+                
+                fillTable(vyanKavarga, "vyanKavarga");
+                fillTable(vyanChavarga, "vyanChavarga");
+                fillTable(vyanTavarga, "vyanTavarga");
+                fillTable(vyanThavarga, "vyanThavarga");
+                fillTable(vyanPavarga, "vyanPavarga");
+                
+                fillTable(vyanAvarga1, "vyanAvarga1");
+                fillTable(vyanAvarga2, "vyanAvarga2");
+                fillTable(vyanAvarga3, "vyanAvarga3");
+            }
+        </script>
+    </head>
+    <body style="align-items: center"  onload=fillTables()>
+        <h1 align=center>स्वराः  - swarah (vowels)</h1>
+        <div id=aksharaha class=center>
+            <audio id="player" src="Swaraha/aa.ogg"></audio>
+            <div id=swaraha>
+                
+            </div>
+            <br>
+            <div id=swarahaYogawaha>
+                
+            </div>
+            <hr>
+            <br>
+            <h1 align=center>व्यञ्जनानि  - vyanjanaani (consonants) <br>- वर्गीय</h1>
+            
+            <div id=vyanKavarga>
+                
+            </div>
+            <br>
+            <div id=vyanChavarga>
+                
+            </div>
+            <br>
+            <div id=vyanTavarga>
+                
+            </div>
+            <br>
+            <div id=vyanThavarga>
+                
+            </div>
+            <br>
+            <div id=vyanPavarga>
+                
+            </div>
+            <br>
+            <div id=vyanAvarga1>
+                
+            </div>
+            <br>
+            <div id=vyanAvarga2>
+                
+            </div>
+            <br>
+            <div id=vyanAvarga3>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>
